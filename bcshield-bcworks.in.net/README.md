@@ -8,6 +8,8 @@
 - Disabling right-click and common copy/paste keyboard shortcuts to prevent content theft,
 - A sanitizer utility to clean input strings from malicious characters.
 
+BC Shield is not free it requires subscription activation to ensure it works on your sites.
+
 BC Shield runs entirely on the client side without dependencies, injecting necessary CSS and safeguards dynamically, giving you a simple, configurable layer of protection — all packed inside a single self-contained JavaScript file.
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/guider23/bcshield?style=social)
@@ -38,10 +40,6 @@ Add the following script tag to your HTML file, ideally before the closing `</bo
 > **Need automation scripts or integration tips for your build process?**  
 > Just ask — I got you covered! 😎
 
----
-> Version History <br>
-> Main - Only JavaScript <br>
-> 1.0  - JavaScript + CSS (Stlying added) <br>
-> 2.0  - Advanced Javascript Update (Upcoming)
+
 
 *Crafted by Siddarth, powered by BC Shield — your ultimate script protector.*
