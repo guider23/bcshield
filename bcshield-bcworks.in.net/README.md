@@ -26,7 +26,7 @@ BC Shield runs entirely on the client side without dependencies, injecting neces
 Add the following script tag to your HTML file, ideally before the closing `</body>` tag or inside the `<head>` section:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/guider23/bcshield@yourdomain/bc-shield.js" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/xxx/bcshieldxx@yourdomain/bc-shield.js" defer></script>
 ```
 
 - The `defer` attribute ensures the script loads **after** your HTML content is parsed.
