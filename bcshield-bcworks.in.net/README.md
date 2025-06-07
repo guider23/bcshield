@@ -24,7 +24,7 @@ BC Shield runs entirely on the client side without dependencies, injecting neces
 Add the following script tag to your HTML file, ideally before the closing `</body>` tag or inside the `<head>` section:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/guider23/bcshield@1.0/bc-shield.js" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/guider23/bcshield@yourdomain/bc-shield.js" defer></script>
 ```
 
 - The `defer` attribute ensures the script loads **after** your HTML content is parsed.
@@ -60,19 +60,19 @@ Grab the script and place it in your project folder using one of these methods:
 ### Using `curl` (Windows, macOS, Linux)
 
 ```bash
-curl -o bc-shield.js https://cdn.jsdelivr.net/gh/guider23/bcshield@1.0/bc-shield.js
+curl -o bc-shield.js https://cdn.jsdelivr.net/gh/guider23/bcshield@yourdomain/bc-shield.js
 ```
 
 ### Using `wget` (macOS, Linux)
 
 ```bash
-wget -O bc-shield.js https://cdn.jsdelivr.net/gh/guider23/bcshield@1.0/bc-shield.js
+wget -O bc-shield.js https://cdn.jsdelivr.net/gh/guider23/bcshield@yourdomain/bc-shield.js
 ```
 
 ### Using PowerShell (Windows)
 
 ```powershell
-Invoke-WebRequest -Uri "https://cdn.jsdelivr.net/gh/guider23/bcshield@1.0/bc-shield.js" -OutFile "bc-shield.js"
+Invoke-WebRequest -Uri "https://cdn.jsdelivr.net/gh/guider23/bcshield@yourdomain/bc-shield.js" -OutFile "bc-shield.js"
 ```
 
 ---
