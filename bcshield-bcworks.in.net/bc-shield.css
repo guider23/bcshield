@@ -1,0 +1,34 @@
+ .bc-shield-warning {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      text-align: center;
+      z-index: 9999;
+    }
+    .bc-shield-warning .icon {
+      font-size: 2.5rem;
+      color: #dc3545;
+      margin-bottom: 0.625rem;
+    }
+    .bc-shield-warning h1 {
+      font-size: 1.5rem;
+      color: #dc3545;
+      margin: 0 0 0.625rem;
+    }
+    .bc-shield-warning p {
+      font-size: 0.875rem;
+      color: #555;
+      margin: 0;
+      line-height: 1.4;
+    }
+    @media (max-width: 600px) {
+      .bc-shield-warning {
+        width: 95%;
+      }
+      .bc-shield-warning .icon { font-size: 2rem; }
+      .bc-shield-warning h1 { font-size: 1.25rem; }
+      .bc-shield-warning p { font-size: 0.75rem; }
+    }
