@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BC Shield Bypass Challenge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+
+        window.BCShieldConfig = {
+            devtools: true,
+            iframe: false,
+            trap: true,
+            antiCopy: true,
+            sanitizer: true
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/guider23/bcshield@1.0/bc-shield.js" defer></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a202c, #2d3748);
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+        }
+        .terminal-text {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        #challenge-area {
+            background: #1f2937;
+            border: 2px solid #06b6d4;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-4">
+    <div id="challenge-area" class="rounded-lg p-8 max-w-2xl w-full">
+        <h1 class="text-4xl font-bold text-cyan-400 text-center terminal-text mb-6">BC Shield Bypass Challenge</h1>
+        <p class="text-gray-300 text-center mb-4">Open Developer Tools 3 times to win $1000! <span class="text-red-400">Warning: Refreshing the page resets your count.</span></p>
+        <p class="text-gray-300 text-center mb-4">Or, bypass the shield with the secret code.</p>
+        <div id="status" class="text-center text-red-400 mb-4 terminal-text"></div>
+        <div id="devtools-count" class="text-center text-gray-200 mb-4 terminal-text">Dev Tools Open Count: 0 | Refresh Count: 0</div>
+
+        <!-- Bot Trap Input (Hidden) -->
+        <input type="text" id="bot-trap" name="bc_trap" class="hidden" autocomplete="off">
+
+        <!-- Challenge Input -->
+        <div class="mb-6">
+            <label for="challenge-input" class="block text-gray-200 mb-2">Enter your bypass attempt:</label>
+            <input id="challenge-input" type="text" class="w-full p-2 rounded bg-gray-800 text-white border border-cyan-500 focus:outline-none focus:border-cyan-300" placeholder="Try to bypass the shield...">
+        </div>
+
+        <button id="submit-btn" class="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded">Submit</button>
+
+        <div id="result" class="mt-6 text-center text-gray-200"></div>
+    </div>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            if (!localStorage.getItem('devToolsCount')) {
+                localStorage.setItem('devToolsCount', '0');
+            }
+            if (!localStorage.getItem('refreshCount')) {
+                localStorage.setItem('refreshCount', '0');
+            }
+
+            let refreshCount = parseInt(localStorage.getItem('refreshCount')) + 1;
+            localStorage.setItem('refreshCount', refreshCount);
+            localStorage.setItem('devToolsCount', '0'); 
+
+            const updateCounterDisplay = () => {
+                document.getElementById('devtools-count').textContent = 
+                    `Dev Tools Open Count: ${localStorage.getItem('devToolsCount')} | Refresh Count: ${localStorage.getItem('refreshCount')}`;
+            };
+            updateCounterDisplay();
+
+            let devToolsTriggered = false;
+            const checkDevTools = () => {
+                const widthDiff = window.outerWidth - window.innerWidth;
+                const heightDiff = window.outerHeight - window.innerHeight;
+                const devToolsOpen = widthDiff > 180 || heightDiff > 180 || window.innerHeight < 400;
+
+                if (devToolsOpen && !devToolsTriggered) {
+                    devToolsTriggered = true;
+                    let devToolsCount = parseInt(localStorage.getItem('devToolsCount')) + 1;
+                    localStorage.setItem('devToolsCount', devToolsCount);
+                    updateCounterDisplay();
+
+                    if (devToolsCount >= 3) {
+                        document.getElementById('result').innerHTML = 
+                            '<span class="text-green-400 terminal-text">You opened Dev Tools 3 times! Contact the admin for your $1000 prize!</span>';
+                    }
+                } else if (!devToolsOpen) {
+                    devToolsTriggered = false; 
+                }
+            };
+            setInterval(checkDevTools, 1000);
+
+            document.getElementById('submit-btn').addEventListener('click', () => {
+                const input = document.getElementById('challenge-input').value;
+                const resultDiv = document.getElementById('result');
+                const sanitized = window.BCShield ? window.BCShield.sanitize(input) : input.replace(/[<>"']/g, '');
+                const secretCode = 'BYPASS_SUCCESS_2025';
+
+                if (sanitized === secretCode) {
+                    resultDiv.innerHTML = '<span class="text-green-400 terminal-text">Success! You bypassed the shield! Secret Code: FLAG{XAI_CHALLENGE_2025}</span>';
+                } else {
+                    resultDiv.innerHTML = '<span class="text-red-400 terminal-text">Bypass failed! Try again.</span>';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
