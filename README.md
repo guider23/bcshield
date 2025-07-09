@@ -3,6 +3,9 @@
 ![shot style-2025-06-12T14_40_46 370Z](https://github.com/user-attachments/assets/794517c4-6ceb-440c-9af7-dd80ffcb247a)
 
 
+
+
+> Project is temporarly suspended
 **BC Shield** is an all-in-one, lightweight JavaScript security script designed to protect your web pages from common threats and unwanted interactions. It provides runtime protections such as:
 
 - Blocking your site from being embedded inside iframes (preventing clickjacking),
