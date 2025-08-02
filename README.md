@@ -1,3 +1,5 @@
+All Files were Depreceated due to security and compatability issues.
+
 ## BC SHIELD @LATEST VERSION 1.0
 
 ![shot style-2025-06-12T14_40_46 370Z](https://github.com/user-attachments/assets/794517c4-6ceb-440c-9af7-dd80ffcb247a)
